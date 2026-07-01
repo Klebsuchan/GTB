@@ -1,0 +1,6 @@
+{
+  "name": "GTB - Crédito e Finanças",
+  "description": "Landing page para a agência de crédito GTB focada em conversão para WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
