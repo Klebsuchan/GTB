@@ -1,6 +1,7 @@
 import { Phone, Moon, Sun } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
@@ -47,9 +48,9 @@ export default function Navbar() {
               href="https://wa.me/5554997013983?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20simula%C3%A7%C3%A3o%20de%20cr%C3%A9dito!"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-[#0a1422] px-6 py-3 rounded-full font-bold text-sm shadow-xl shadow-primary/10 hover:bg-primary-light transition-all h-[44px]"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl shadow-[#25D366]/20 hover:bg-[#128C7E] transition-all h-[44px]"
             >
-              <Phone size={16} fill="currentColor" />
+              <WhatsAppIcon size={16} />
               <span className="hidden sm:inline">Simular Agora</span>
               <span className="sm:hidden">Simular</span>
             </motion.a>
