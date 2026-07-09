@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20 md:h-24">
             <div className="flex-shrink-0 flex items-center gap-3">
               <img 
-                src="/logo-gtb.png" 
+                src="/logo.png?v=2" 
                 alt="GTB Logo" 
                 className="h-10 md:h-14 w-auto object-contain"
               />
