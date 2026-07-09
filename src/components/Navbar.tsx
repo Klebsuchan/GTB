@@ -14,21 +14,23 @@ export default function Navbar() {
   }, [isDark]);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/80 dark:bg-secondary-dark/80 backdrop-blur-xl border-b border-slate-200 dark:border-secondary-light/30 transition-all">
+    <nav className="sticky top-0 z-50 w-full bg-white/80 dark:bg-secondary-dark/80 backdrop-blur-none lg:backdrop-blur-md border-b border-slate-200 dark:border-secondary-light/30 transition-all">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-24">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex items-center gap-3">
               <img 
                 src="/logo-gtb.png" 
                 alt="GTB Logo" 
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-10 md:h-14 w-auto object-contain"
               />
+              <span className="bg-primary/20 text-primary-dark dark:text-primary-light px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider hidden sm:block border border-primary/30">Layout Novo</span>
             </div>
           
           <div className="hidden md:flex items-center space-x-10">
             <a href="#quem-somos" className="text-slate-700 dark:text-slate-300 hover:text-primary-light font-semibold tracking-wide transition-colors text-sm">Quem Somos</a>
             <a href="#servicos" className="text-slate-700 dark:text-slate-300 hover:text-primary-light font-semibold tracking-wide transition-colors text-sm">Serviços</a>
             <a href="#vantagens" className="text-slate-700 dark:text-slate-300 hover:text-primary-light font-semibold tracking-wide transition-colors text-sm">Vantagens</a>
+            <a href="#depoimentos" className="text-slate-700 dark:text-slate-300 hover:text-primary-light font-semibold tracking-wide transition-colors text-sm">Depoimentos</a>
           </div>
 
           <div className="flex items-center gap-4">

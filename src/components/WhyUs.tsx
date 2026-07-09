@@ -21,16 +21,18 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="col-span-1 lg:col-span-5 bg-gradient-to-br from-white dark:from-secondary to-white dark:to-secondary-dark border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 lg:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden shadow-2xl"
+            className="col-span-1 lg:col-span-5 bg-gradient-to-br from-white dark:from-secondary to-white dark:to-secondary-dark border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 lg:p-12 flex flex-col justify-center items-center text-center relative overflow-hidden shadow-2xl"
           >
              <div className="absolute w-[800px] h-[800px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
              
              {/* Decorative Pattern / Abstract representation of trusting a human advisor */}
-             <div className="w-full max-w-sm aspect-square border border-slate-200 dark:border-secondary-light/30 rounded-3xl flex flex-col items-center justify-center p-8 bg-white dark:bg-secondary-dark/60 backdrop-blur-xl z-10 shadow-inner group">
+             <div className="w-full max-w-sm aspect-square border border-slate-200 dark:border-secondary-light/30 rounded-3xl flex flex-col items-center justify-center p-8 bg-white/60 dark:bg-secondary-dark/60 backdrop-blur-none lg:backdrop-blur-md z-10 shadow-inner group">
                 <div className="w-24 h-24 mb-10 relative">
                   <div className="absolute inset-0 rounded-full border border-slate-200 dark:border-secondary-light"></div>
                   <div className="absolute inset-0 rounded-full border-2 border-t-primary border-r-primary border-b-transparent border-l-transparent group-hover:rotate-180 transition-transform duration-1000"></div>
-                  <div className="absolute inset-2 rounded-full bg-white dark:bg-secondary shadow-inner flex items-center justify-center font-bold text-slate-900 dark:text-white text-xl tracking-wider">GTB</div>
+                  <div className="absolute inset-2 rounded-full bg-white/60 dark:bg-secondary shadow-inner flex items-center justify-center font-bold text-slate-900 dark:text-white text-xl tracking-wider">
+                    <img src="/logo-gtb.png" alt="GTB" className="w-12 h-12 object-contain" />
+                  </div>
                 </div>
                 <h4 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Simulação Ágil</h4>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-light">Nossos especialistas analisam <br/> o melhor cenário para você</p>
@@ -42,7 +44,7 @@ export default function WhyUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="col-span-1 lg:col-span-7 bg-white dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 md:p-8 lg:p-14 flex flex-col justify-center backdrop-blur-sm"
+            className="col-span-1 lg:col-span-7 bg-white/60 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 md:p-8 lg:p-14 flex flex-col justify-center backdrop-blur-none lg:backdrop-blur-sm"
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -69,7 +71,7 @@ export default function WhyUs() {
                  href="https://wa.me/5554997013983?text=Ol%C3%A1%2C%20quais%20s%C3%A3o%20as%20vantagens%20para%20o%20meu%20perfil%3F"
                  target="_blank"
                  rel="noopener noreferrer"
-                 className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#0a1422] hover:bg-slate-200 rounded-2xl font-bold text-lg transition-colors shadow-xl"
+                 className="inline-flex items-center justify-center px-10 py-4 sm:py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 rounded-2xl font-bold text-base sm:text-lg transition-colors shadow-xl"
               >
                 Falar com Consultor
               </a>

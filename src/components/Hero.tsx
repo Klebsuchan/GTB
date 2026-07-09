@@ -1,6 +1,6 @@
 import { ArrowRight, ShieldCheck, Clock, Percent } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function Hero() {
   const ref = useRef(null);
@@ -17,7 +17,8 @@ export default function Hero() {
     email: '',
     cpf: '',
     whatsapp: '',
-    value: ''
+    value: '10000',
+    installments: '36'
   });
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
@@ -29,7 +30,8 @@ Nome: ${formData.name}
 E-mail: ${formData.email}
 CPF: ${formData.cpf}
 WhatsApp: ${formData.whatsapp}
-Valor Desejado: ${formData.value}`;
+Valor Desejado: R$ ${parseInt(formData.value || "0").toLocaleString('pt-BR')}
+Parcelas: ${formData.installments}x`;
 
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/5554997013983?text=${encodedText}`, '_blank');
@@ -44,7 +46,7 @@ Valor Desejado: ${formData.value}`;
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="col-span-1 lg:col-span-8 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 sm:p-8 lg:p-14 flex flex-col justify-center relative overflow-hidden shadow-2xl"
+          className="col-span-1 lg:col-span-8 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 sm:p-8 lg:p-14 flex flex-col justify-center relative overflow-hidden shadow-2xl"
         >
           {/* Video Background Layer */}
           <div className="absolute inset-0 z-0 pointer-events-none">
@@ -58,14 +60,14 @@ Valor Desejado: ${formData.value}`;
               <source src="/bg-video.mp4" type="video/mp4" />
             </video>
             {/* Gradient overlay for readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-transparent dark:from-secondary-dark/70 dark:via-secondary-dark/40 dark:to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/40 dark:from-secondary-dark/95 dark:via-secondary-dark/80 dark:to-secondary-dark/40 backdrop-blur-[2px]"></div>
           </div>
 
           {/* Parallax Background Layer */}
-          <div className="absolute -inset-20 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute -inset-20 z-0 overflow-hidden pointer-events-none hidden md:block">
             {/* Soft background gradients */}
-            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/20 dark:bg-primary/10 rounded-full blur-3xl opacity-60"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/20 dark:bg-primary/10 rounded-full blur-3xl opacity-60"></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/20 dark:bg-primary/10 rounded-full blur-2xl md:blur-3xl opacity-60"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/20 dark:bg-primary/10 rounded-full blur-2xl md:blur-3xl opacity-60"></div>
             
             {/* Parallax elements */}
             <motion.div 
@@ -114,55 +116,55 @@ Valor Desejado: ${formData.value}`;
             </motion.div>
           </div>
 
-          <div className="flex flex-col gap-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 dark:bg-secondary-dark/80 border-2 border-white dark:border-secondary-light backdrop-blur-md text-sm font-semibold w-fit text-primary-light shadow-[0_0_15px_rgba(255,255,255,0.8)] dark:shadow-[0_0_15px_rgba(0,0,0,0.8)]">
+            <div className="flex flex-col gap-6 lg:gap-8 relative z-10 text-center lg:text-left">
+            <div className="mx-auto lg:mx-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light backdrop-blur-none lg:backdrop-blur-md text-xs sm:text-sm font-semibold w-fit text-primary-light shadow-sm">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(184,134,11,0.8)]"></span>
               Agência de crédito regulamentada
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-slate-900 dark:text-white [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_20px_rgba(255,255,255,0.9)] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_20px_rgba(15,23,42,0.9)]">
-              Transforme seus planos em <br className="hidden md:block" />
-              <span className="text-primary-dark dark:text-primary [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_15px_rgba(255,255,255,1)] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_15px_rgba(0,0,0,1)]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] text-slate-900 dark:text-white">
+              Transforme seus planos em <br className="hidden lg:block" />
+              <span className="text-primary-dark dark:text-primary drop-shadow-sm">
                 realidade hoje.
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 max-w-xl leading-relaxed mt-2 font-medium [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_10px_rgba(255,255,255,1)] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_10px_rgba(15,23,42,1)]">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
               As melhores taxas do mercado para crédito pessoal, consignado e financiamento com aprovação rápida.
             </p>
             
-            <div className="pt-6 pb-2">
+            <div className="pt-4 sm:pt-6 pb-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <motion.a 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="https://wa.me/5554997013983?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20simula%C3%A7%C3%A3o%20de%20cr%C3%A9dito!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full sm:w-auto gap-3 bg-primary text-[#0a1422] px-10 py-5 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.7)] dark:shadow-[0_0_20px_rgba(0,0,0,0.7)] hover:bg-primary-light border-2 border-white/80 dark:border-black/50 transition-all"
+                className="inline-flex items-center justify-center w-full sm:w-auto gap-3 bg-primary text-[#0a1422] px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg shadow-xl hover:bg-primary-light border border-white/50 dark:border-black/20 transition-all"
               >
                 Falar pelo WhatsApp
                 <ArrowRight size={20} />
               </motion.a>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 mt-4 border-t border-slate-200 dark:border-secondary-light/30 bg-white/40 dark:bg-black/20 p-4 rounded-2xl backdrop-blur-sm shadow-[0_0_15px_rgba(255,255,255,0.5)] dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white dark:bg-secondary-dark/80 border-2 border-white dark:border-secondary-light flex items-center justify-center shadow-md shadow-white/50 dark:shadow-black/50">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 pt-6 mt-4 border-t border-slate-200 dark:border-secondary-light/30 bg-white/40 dark:bg-black/20 p-5 rounded-3xl backdrop-blur-none lg:backdrop-blur-sm shadow-sm text-left">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/60 dark:bg-secondary-dark border border-slate-200 dark:border-secondary-light flex items-center justify-center shrink-0 shadow-sm">
                   <Clock size={18} className="text-primary-light" />
                 </div>
-                <span className="text-sm font-bold text-slate-900 dark:text-white [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_5px_#fff] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_5px_#0f172a]">Aprovação <br/>em até 24h</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Aprovação <br className="hidden sm:block"/>em até 24h</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white dark:bg-secondary-dark/80 border-2 border-white dark:border-secondary-light flex items-center justify-center shadow-md shadow-white/50 dark:shadow-black/50">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/60 dark:bg-secondary-dark border border-slate-200 dark:border-secondary-light flex items-center justify-center shrink-0 shadow-sm">
                   <Percent size={18} className="text-primary-light" />
                 </div>
-                <span className="text-sm font-bold text-slate-900 dark:text-white [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_5px_#fff] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_5px_#0f172a]">Taxas reais <br/>e justas</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Taxas reais <br className="hidden sm:block"/>e justas</span>
               </div>
-              <div className="flex items-center gap-3 col-span-2 md:col-span-1">
-                <div className="w-10 h-10 rounded-full bg-white dark:bg-secondary-dark/80 border-2 border-white dark:border-secondary-light flex items-center justify-center shadow-md shadow-white/50 dark:shadow-black/50">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 col-span-2 md:col-span-1 border-t md:border-t-0 border-slate-200 dark:border-secondary-light/30 pt-4 md:pt-0 mt-2 md:mt-0">
+                <div className="w-10 h-10 rounded-full bg-white/60 dark:bg-secondary-dark border border-slate-200 dark:border-secondary-light flex items-center justify-center shrink-0 shadow-sm">
                   <ShieldCheck size={18} className="text-primary-light" />
                 </div>
-                <span className="text-sm font-bold text-slate-900 dark:text-white [text-shadow:-1px_-1px_0_#fff,1px_-1px_0_#fff,-1px_1px_0_#fff,1px_1px_0_#fff,0_0_5px_#fff] dark:[text-shadow:-1px_-1px_0_#0f172a,1px_-1px_0_#0f172a,-1px_1px_0_#0f172a,1px_1px_0_#0f172a,0_0_5px_#0f172a]">Processo <br/>100% seguro</span>
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">Processo <br className="hidden sm:block"/>100% seguro</span>
               </div>
             </div>
           </div>
@@ -175,36 +177,66 @@ Valor Desejado: ${formData.value}`;
           className="col-span-1 lg:col-span-4 flex flex-col"
         >
           {/* Abstract financial card graphic */}
-          <div className="bg-gradient-to-b from-white dark:from-secondary to-white dark:to-secondary-dark border border-slate-200 dark:border-secondary-light/50 rounded-[2rem] p-6 sm:p-8 h-full flex flex-col relative shadow-2xl">
+          <div className="bg-gradient-to-b from-white dark:from-secondary to-white dark:to-secondary-dark border border-slate-200 dark:border-secondary-light/50 rounded-3xl md:rounded-[2rem] p-6 sm:p-8 h-full flex flex-col relative shadow-2xl">
             <div className="mb-6 relative z-10 text-center">
               <p className="text-slate-600 dark:text-slate-400 text-sm font-bold uppercase tracking-[0.2em] mb-3">Simulação Expressa</p>
               <div className="h-1 w-12 bg-primary mx-auto rounded-full"></div>
             </div>
             
             {!isFormOpen ? (
-              <div className="space-y-4 flex-1 flex flex-col justify-center relative z-10 max-w-[280px] mx-auto w-full">
-                <div className="bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-2xl p-6 backdrop-blur-xl">
-                   <p className="text-xs text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider mb-2">Valor desejado</p>
-                   <p className="font-black text-4xl text-slate-900 dark:text-white tracking-tight">R$ 10.000</p>
+              <div className="space-y-6 flex-1 flex flex-col justify-center relative z-10 mx-auto w-full max-w-[320px]">
+                
+                {/* Interactive Slider for Loan Amount */}
+                <div className="bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-2xl p-5 backdrop-blur-none lg:backdrop-blur-md">
+                  <div className="flex justify-between items-end mb-4">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Valor desejado</p>
+                    <p className="font-black text-2xl text-slate-900 dark:text-white tracking-tight">R$ {parseInt(formData.value || "10000").toLocaleString('pt-BR')}</p>
+                  </div>
+                  <input 
+                    type="range" 
+                    min="1000" 
+                    max="50000" 
+                    step="500"
+                    value={formData.value || "10000"} 
+                    onChange={(e) => setFormData({...formData, value: e.target.value})}
+                    className="w-full h-2 bg-slate-200 dark:bg-secondary-light rounded-lg appearance-none cursor-pointer accent-primary"
+                  />
+                  <div className="flex justify-between text-[10px] text-slate-400 mt-2 font-medium">
+                    <span>R$ 1.000</span>
+                    <span>R$ 50.000</span>
+                  </div>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-2xl p-6 backdrop-blur-xl">
-                    <p className="text-xs text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider mb-2">Parcelas</p>
-                    <p className="font-bold text-2xl text-slate-900 dark:text-white">36x</p>
+                  <div className="bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-2xl p-5 backdrop-blur-none lg:backdrop-blur-md flex flex-col justify-between">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-2">Parcelas</p>
+                    <select 
+                      className="bg-transparent font-bold text-xl text-slate-900 dark:text-white focus:outline-none appearance-none cursor-pointer w-full"
+                      value={formData.installments}
+                      onChange={(e) => setFormData({...formData, installments: e.target.value})}
+                    >
+                      <option value="12" className="text-black">12x</option>
+                      <option value="24" className="text-black">24x</option>
+                      <option value="36" className="text-black">36x</option>
+                      <option value="48" className="text-black">48x</option>
+                      <option value="60" className="text-black">60x</option>
+                    </select>
                   </div>
-                  <div className="bg-white dark:bg-secondary-dark/80 border border-primary/20 rounded-2xl p-6 backdrop-blur-xl relative overflow-hidden">
+                  
+                  <div className="bg-slate-50 dark:bg-secondary-dark/80 border border-primary/30 rounded-2xl p-5 backdrop-blur-none lg:backdrop-blur-md relative overflow-hidden flex flex-col justify-between">
                     <div className="absolute inset-0 bg-primary/5"></div>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider mb-2 relative z-10">Taxas</p>
-                    <p className="font-bold text-xl text-primary-light relative z-10">Especiais</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mb-2 relative z-10">Parcela Est.</p>
+                    <p className="font-bold text-xl text-primary-dark dark:text-primary-light relative z-10">
+                      R$ {Math.round((parseInt(formData.value || "10000") * 1.3) / parseInt(formData.installments || "36")).toLocaleString('pt-BR')}
+                    </p>
                   </div>
                 </div>
                 
                 <button 
                   onClick={() => setIsFormOpen(true)}
-                  className="mt-4 block w-full text-center py-4 bg-primary text-[#0a1422] hover:bg-primary-light transition-colors rounded-2xl font-bold text-lg shadow-xl"
+                  className="mt-2 block w-full text-center py-4 bg-primary text-white hover:bg-primary-dark transition-colors rounded-2xl font-bold text-lg shadow-xl shadow-primary/20"
                 >
-                  Personalizar
+                  Solicitar Agora
                 </button>
               </div>
             ) : (
@@ -215,7 +247,7 @@ Valor Desejado: ${formData.value}`;
                   placeholder="Nome completo"
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
-                  className="w-full bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 />
                 <input
                   required
@@ -223,7 +255,7 @@ Valor Desejado: ${formData.value}`;
                   placeholder="E-mail"
                   value={formData.email}
                   onChange={e => setFormData({...formData, email: e.target.value})}
-                  className="w-full bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 />
                 <input
                   required
@@ -231,7 +263,7 @@ Valor Desejado: ${formData.value}`;
                   placeholder="CPF"
                   value={formData.cpf}
                   onChange={e => setFormData({...formData, cpf: e.target.value})}
-                  className="w-full bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 />
                 <input
                   required
@@ -239,28 +271,25 @@ Valor Desejado: ${formData.value}`;
                   placeholder="WhatsApp"
                   value={formData.whatsapp}
                   onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                  className="w-full bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
                 />
-                <input
-                  required
-                  type="text"
-                  placeholder="Valor desejado (Ex: 10.000)"
-                  value={formData.value}
-                  onChange={e => setFormData({...formData, value: e.target.value})}
-                  className="w-full bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
+                <div className="p-3 bg-primary/10 rounded-xl border border-primary/20 mb-2">
+                  <p className="text-xs text-primary-dark dark:text-primary-light font-medium text-center">
+                    Valor selecionado: <strong className="text-sm">R$ {parseInt(formData.value || "10000").toLocaleString('pt-BR')}</strong>
+                  </p>
+                </div>
                 <button 
                   type="submit"
-                  className="mt-2 block w-full text-center py-3 bg-primary text-[#0a1422] hover:bg-primary-light transition-colors rounded-xl font-bold text-base shadow-xl"
+                  className="mt-2 block w-full text-center py-3 bg-primary text-white hover:bg-primary-dark transition-colors rounded-xl font-bold text-base shadow-lg shadow-primary/20"
                 >
-                  Calcular
+                  Enviar via WhatsApp
                 </button>
                 <button 
                   type="button" 
                   onClick={() => setIsFormOpen(false)} 
-                  className="text-xs text-center text-slate-500 w-full hover:text-slate-800 dark:hover:text-slate-300 py-2"
+                  className="block w-full text-center py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors text-sm font-medium"
                 >
-                  Voltar
+                  Voltar para simulação
                 </button>
               </form>
             )}

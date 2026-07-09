@@ -21,8 +21,14 @@ const guarantees = [
 
 export default function Security() {
   return (
-    <section className="w-full">
-      <div className="w-full bg-slate-50 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-8 lg:p-14 overflow-hidden relative backdrop-blur-sm">
+    <motion.section 
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="w-full bg-white/60 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-8 lg:p-14 overflow-hidden relative backdrop-blur-none lg:backdrop-blur-sm">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -45,7 +51,7 @@ export default function Security() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 p-8 rounded-[1.5rem] flex flex-col items-center text-center hover:-translate-y-1 transition-transform shadow-sm"
+              className="bg-white/60 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 p-8 rounded-[1.5rem] flex flex-col items-center text-center hover:-translate-y-1 transition-transform shadow-sm"
             >
               <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-secondary flex items-center justify-center border border-slate-200 dark:border-secondary-light/50 mb-6 shadow-md shadow-primary/5">
                 <g.icon className="w-7 h-7 text-primary" />
@@ -56,6 +62,6 @@ export default function Security() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

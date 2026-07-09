@@ -26,8 +26,14 @@ const steps = [
 
 export default function Steps() {
   return (
-    <section className="w-full">
-      <div className="bg-gradient-to-b from-white/40 dark:from-secondary/40 to-white/60 dark:to-secondary-dark/60 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-8 lg:p-16 text-center relative overflow-hidden shadow-2xl backdrop-blur-sm">
+    <motion.section 
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="bg-gradient-to-b from-white/40 dark:from-secondary/40 to-white/60 dark:to-secondary-dark/60 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-8 lg:p-16 text-center relative overflow-hidden shadow-2xl backdrop-blur-none lg:backdrop-blur-sm">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-white dark:via-secondary-dark/0 to-white dark:to-secondary-dark/0 pointer-events-none"></div>
 
         <div className="relative z-10 mb-16">
@@ -56,7 +62,7 @@ export default function Steps() {
                 transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
                 className="relative z-10 flex flex-col items-center group"
               >
-                <div className="w-20 h-20 bg-white dark:bg-secondary-dark/80 backdrop-blur-xl border border-slate-200 dark:border-secondary-light flex items-center justify-center rounded-3xl mb-8 text-primary shadow-xl relative group-hover:scale-110 transition-transform duration-500">
+                <div className="w-20 h-20 bg-white/60 dark:bg-secondary-dark/80 backdrop-blur-none lg:backdrop-blur-md border border-slate-200 dark:border-secondary-light flex items-center justify-center rounded-3xl mb-8 text-primary shadow-xl relative group-hover:scale-110 transition-transform duration-500">
                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-xs font-black text-[#0a1422] border-4 border-slate-300 dark:border-secondary-dark/80 shadow-md">
                      {i + 1}
                    </div>
@@ -69,6 +75,6 @@ export default function Steps() {
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

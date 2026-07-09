@@ -6,7 +6,7 @@ export default function Footer() {
   const [modalOpen, setModalOpen] = useState<'privacy' | 'cookies' | null>(null);
 
   return (
-    <footer id="contato" className="bg-white dark:bg-secondary-dark/80 pt-16 pb-12 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-secondary-light/30">
+    <footer id="contato" className="bg-white/60 dark:bg-secondary-dark/80 pt-16 pb-12 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-secondary-light/30">
       <div className="max-w-[1440px] px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-16">
           <div className="col-span-1 md:col-span-2">
@@ -31,12 +31,12 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-slate-200 dark:border-secondary-light/30 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.15em] gap-6 text-slate-500 dark:text-slate-500">
+        <div className="pt-8 border-t border-slate-200 dark:border-secondary-light/30 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.15em] gap-6 text-slate-500 dark:text-slate-500 text-center md:text-left">
           <span>GTB SOLUÇÕES FINANCEIRAS LTDA © {new Date().getFullYear()}</span>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
             <span>CNPJ: 00.000.000/0001-00</span>
-            <span onClick={() => setModalOpen('privacy')} className="text-primary hover:text-primary-light transition-colors underline cursor-pointer">Políticas de Privacidade</span>
-            <span onClick={() => setModalOpen('cookies')} className="text-primary hover:text-primary-light transition-colors underline cursor-pointer">Políticas de Cookies</span>
+            <span onClick={() => setModalOpen('privacy')} className="text-primary hover:text-primary-light transition-colors underline cursor-pointer">Privacidade</span>
+            <span onClick={() => setModalOpen('cookies')} className="text-primary hover:text-primary-light transition-colors underline cursor-pointer">Cookies</span>
           </div>
         </div>
       </div>
@@ -48,14 +48,14 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-none lg:backdrop-blur-sm"
               onClick={() => setModalOpen(null)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl bg-white dark:bg-secondary border border-slate-200 dark:border-secondary-light shadow-2xl rounded-2xl p-6 lg:p-10 max-h-[85vh] overflow-y-auto"
+              className="relative w-full max-w-2xl bg-white/60 dark:bg-secondary border border-slate-200 dark:border-secondary-light shadow-2xl rounded-2xl p-6 lg:p-10 max-h-[85vh] overflow-y-auto"
             >
               <button 
                 onClick={() => setModalOpen(null)}

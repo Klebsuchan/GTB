@@ -33,8 +33,14 @@ export default function FAQ() {
   };
 
   return (
-    <section className="w-full">
-      <div className="bg-white dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 md:p-8 lg:p-14 relative overflow-hidden flex flex-col lg:flex-row gap-8 lg:gap-12 backdrop-blur-sm shadow-xl">
+    <motion.section 
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="bg-white/60 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 md:p-8 lg:p-14 relative overflow-hidden flex flex-col lg:flex-row gap-8 lg:gap-12 backdrop-blur-none lg:backdrop-blur-sm shadow-xl">
         <div className="absolute top-0 right-0 p-6 opacity-[0.03] pointer-events-none">
            <HelpCircle size={240} />
         </div>
@@ -69,12 +75,12 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-secondary-dark/60 border border-slate-200 dark:border-secondary-light/30 rounded-2xl overflow-hidden cursor-pointer hover:border-primary/30 transition-colors shadow-md"
+              className="bg-white/60 dark:bg-secondary-dark/60 border border-slate-200 dark:border-secondary-light/30 rounded-2xl overflow-hidden cursor-pointer hover:border-primary/30 transition-colors shadow-md"
               onClick={() => toggleOpen(index)}
             >
               <div className="p-6 flex justify-between items-center bg-transparent">
                 <h4 className="text-slate-900 dark:text-white font-semibold pr-4 text-left leading-relaxed">{faq.question}</h4>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? 'bg-primary text-[#0a1422]' : 'bg-white dark:bg-secondary text-primary-light'}`}>
+                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? 'bg-primary text-[#0a1422]' : 'bg-white/60 dark:bg-secondary text-primary-light'}`}>
                   {openIndex === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                 </div>
               </div>
@@ -92,6 +98,6 @@ export default function FAQ() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

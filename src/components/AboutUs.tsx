@@ -21,8 +21,15 @@ const values = [
 
 export default function AboutUs() {
   return (
-    <section id="quem-somos" className="w-full">
-      <div className="w-full bg-white dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 lg:p-14 overflow-hidden relative backdrop-blur-sm">
+    <motion.section 
+      id="quem-somos" 
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="w-full bg-white/60 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 lg:p-14 overflow-hidden relative backdrop-blur-none lg:backdrop-blur-sm">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-12">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
@@ -49,7 +56,7 @@ export default function AboutUs() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-slate-50 dark:bg-secondary-dark/80 border border-slate-200 dark:border-secondary-light/50 p-8 rounded-[1.5rem] flex flex-col items-start hover:-translate-y-1 transition-transform"
             >
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-secondary flex items-center justify-center border border-slate-200 dark:border-secondary-light/50 mb-6 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-white/60 dark:bg-secondary flex items-center justify-center border border-slate-200 dark:border-secondary-light/50 mb-6 shadow-sm">
                 <v.icon className="w-6 h-6 text-primary" />
               </div>
               <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">{v.title}</h4>
@@ -58,6 +65,6 @@ export default function AboutUs() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -36,9 +36,16 @@ const services = [
 
 export default function Features() {
   return (
-    <section id="servicos" className="w-full">
+    <motion.section 
+      id="servicos" 
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {/* Features Header Card */}
-      <div className="bg-white dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between mb-6 shadow-lg backdrop-blur-sm">
+      <div className="bg-white/60 dark:bg-secondary/40 border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between mb-6 shadow-lg backdrop-blur-none lg:backdrop-blur-sm">
         <div className="mb-6 md:mb-0">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -48,7 +55,7 @@ export default function Features() {
             Mais dinheiro, <br className="hidden md:block" /> menos complicação.
           </h3>
         </div>
-        <div className="flex flex-col gap-4 bg-white dark:bg-secondary-dark/50 p-6 rounded-2xl border border-slate-200 dark:border-secondary-light/20 w-full md:w-auto">
+        <div className="flex flex-col gap-4 bg-white/60 dark:bg-secondary-dark/50 p-6 rounded-2xl border border-slate-200 dark:border-secondary-light/20 w-full md:w-auto">
            <span className="flex items-center text-sm font-medium text-slate-700 dark:text-slate-300"><Wallet className="w-5 h-5 mr-3 text-primary-light"/> Atendimento humanizado</span>
            <span className="flex items-center text-sm font-medium text-slate-700 dark:text-slate-300"><Landmark className="w-5 h-5 mr-3 text-primary-light"/> Correspondente Autorizado</span>
         </div>
@@ -67,11 +74,11 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-secondary border border-slate-200 dark:border-secondary-light/30 rounded-[2rem] p-6 sm:p-8 lg:p-10 flex flex-col justify-between hover:bg-slate-100 dark:bg-secondary-light/20 transition-all duration-300 group relative shadow-xl"
+              className="bg-white/60 dark:bg-secondary border border-slate-200 dark:border-secondary-light/30 rounded-3xl md:rounded-[2rem] p-6 sm:p-8 lg:p-10 flex flex-col justify-between hover:bg-slate-100 dark:bg-secondary-light/20 transition-all duration-300 group relative shadow-xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="text-primary-light mb-8 bg-white dark:bg-secondary-dark/80 w-16 h-16 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-secondary-light shadow-inner group-hover:scale-110 transition-transform duration-500">
+                <div className="text-primary-light mb-8 bg-white/60 dark:bg-secondary-dark/80 w-16 h-16 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-secondary-light shadow-inner group-hover:scale-110 transition-transform duration-500">
                   <Icon size={28} className="text-primary" />
                 </div>
                 <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">{service.title}</h4>
@@ -84,7 +91,7 @@ export default function Features() {
                    href={wppLink}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="mt-auto block w-full text-center py-4 bg-white dark:bg-secondary-dark text-slate-800 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-secondary-light group-hover:bg-primary group-hover:text-[#0a1422] group-hover:border-primary transition-all duration-300"
+                   className="mt-auto block w-full text-center py-4 bg-white/60 dark:bg-secondary-dark text-slate-800 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-secondary-light group-hover:bg-primary group-hover:text-[#0a1422] group-hover:border-primary transition-all duration-300"
                  >
                    Simular {service.title}
                  </a>
@@ -93,6 +100,6 @@ export default function Features() {
           )
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }
